@@ -4,7 +4,7 @@ import {FontAwesome5 } from '@expo/vector-icons';
 import { styles } from '../Utils/Style';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { completeTask } from '../Redux/Slice';
+import { completeTask, deletaTodo } from '../Redux/Slice';
 
 export default function Todo({item}) {
   const navigation = useNavigation();
@@ -19,6 +19,11 @@ export default function Todo({item}) {
   const addToComplete=(item)=>{
     dispatch(completeTask(item));
   }
+
+  //delete Todo
+  const deleteTask=(item)=>{
+    dispatch(deletaTodo(item));
+  }
   
     return (
       <View style={styles.card}>
@@ -29,19 +34,11 @@ export default function Todo({item}) {
         <Text style={styles.icons} onPress={()=>{addToComplete(item)}}>
             <FontAwesome5 name="check-circle" size={15} color="darkblue"/>
         </Text>
-        <Text style={styles.icons}>
+        <Text style={styles.icons} onPress={()=>{deleteTask(item)}}>
             <FontAwesome5 name="trash" size={15} color="darkblue"/>
         </Text>
       </View>
     );
 }
 
-
-
-// //deleteTask
-// const deleteTask=(index)=>{
-// let list=[...tasks];
-// list.splice(index,1);
-// setTasks(list);
-// }
 

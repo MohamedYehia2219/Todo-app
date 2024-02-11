@@ -27,6 +27,19 @@ const todoSlice= createSlice({
             state.inProgress.splice(index,1); 
           }
         },
+        deletaTodo: (state, action)=>{
+            //remove from todos list
+            const todoInTodosList = state.todos.find(res=>res.title===action.payload.title);
+            let todosIndex= state.todos.indexOf(todoInTodosList);
+            state.todos.splice(todosIndex,1);
+            //remove from progress list
+            const todoInProgressList = state.inProgress.find(res=>res.title===action.payload.title);
+            if(todoInProgressList)
+            {
+              let progressIndex= state.inProgress.indexOf(todoInProgressList);
+              state.inProgress.splice(progressIndex,1); 
+            }
+        },
     }
 })
 
@@ -42,5 +55,5 @@ const check=(state , action)=>{
     return true;
   }
 
-export const {addTodo, completeTask} = todoSlice.actions; 
+export const {addTodo, completeTask, deletaTodo} = todoSlice.actions; 
 export default todoSlice;

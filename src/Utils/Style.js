@@ -35,7 +35,6 @@ export const styles = StyleSheet.create({
       fontWeight:'bold',
       color:'white',
     },
-    //**************** */
     card:{
         width:'98%',
         margin:'10px',
