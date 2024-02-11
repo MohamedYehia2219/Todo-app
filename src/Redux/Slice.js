@@ -16,12 +16,17 @@ const todoSlice= createSlice({
             }
         },
         completeTask: (state,action)=>{
-          const todo = state.completed.find(res=>res.title===action.payload.title);
-          if(!todo)
+          const todoInCompleteedList = state.completed.find(res=>res.title===action.payload.title);
+          //add todo if not existed in completed list
+          if(!todoInCompleteedList)
           {
             state.completed=[...state.completed, action.payload];
+            //remove from progress list
+            const todoInProgressList = state.inProgress.find(res=>res.title===action.payload.title);
+            let index= state.inProgress.indexOf(todoInProgressList);
+            state.inProgress.splice(index,1); 
           }
-        }
+        },
     }
 })
 
