@@ -2,13 +2,13 @@ import React from 'react'
 import { View,Text,StyleSheet ,FlatList } from 'react-native'
 import { useSelector } from 'react-redux'
 
-export default function Completed() {
-  const {completed}=useSelector(state=>state.todo)
+export default function Inprogress() {
+  const {inProgress} = useSelector((state)=>state.todo)  
 
-  return(
+  return (
     <View>
       <FlatList style={{flex: 1}}
-        data={completed}
+        data={inProgress}
         renderItem={({item})=>(
           <View style={styles.todos}>
             <Text style={styles.todosText}>Title: {item.title}</Text>
@@ -18,21 +18,22 @@ export default function Completed() {
         keyExtractor={item=>item.id}
         />
     </View>
-  )
+  );
 }
 
 const styles=StyleSheet.create({
-  card:{
-    width:'90vw',
-    margin:'5px',
-    padding:"5px",
-    borderWidth:"1px",
-    borderColor:"darkblue",
-    borderStyle:"solid",
+  todos:{
+    width:"98%",
+    padding:"10px",
+    borderWidth: 2,
+    borderColor:"black",
+    borderRadius:5,
+    backgroundColor:"#5392e6",
+    margin:10,
   },
-  text:{
-    color:'black',
-    fontWeight:"bold"
+  todosText:{
+    fontSize:16,
+    color:"white",
+    flexWrap:"wrap",
   },
 })
-  
