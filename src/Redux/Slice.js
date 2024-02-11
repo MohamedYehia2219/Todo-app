@@ -16,7 +16,11 @@ const todoSlice= createSlice({
             }
         },
         completeTask: (state,action)=>{
-          state.completed=[...state.completed, action.payload];
+          const todo = state.completed.find(res=>res.title===action.payload.title);
+          if(!todo)
+          {
+            state.completed=[...state.completed, action.payload];
+          }
         }
     }
 })

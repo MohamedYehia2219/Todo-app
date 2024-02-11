@@ -8,6 +8,7 @@ import { completeTask } from '../Redux/Slice';
 
 export default function Todo({item}) {
   const navigation = useNavigation();
+  const dispatch=useDispatch();
 
    //navigate to details
   const gotoDetails=(item)=>{
@@ -16,7 +17,6 @@ export default function Todo({item}) {
 
   // add to completet
   const addToComplete=(item)=>{
-    const dispatch=useDispatch();
     dispatch(completeTask(item));
   }
   

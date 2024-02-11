@@ -22,17 +22,19 @@ export default function Completed() {
 }
 
 const styles=StyleSheet.create({
-  card:{
-    width:'90vw',
-    margin:'5px',
-    padding:"5px",
-    borderWidth:"1px",
-    borderColor:"darkblue",
-    borderStyle:"solid",
+  todos:{
+    width:"98%",
+    padding:"10px",
+    borderWidth: 2,
+    borderColor:"black",
+    borderRadius:5,
+    backgroundColor:"#5392e6",
+    margin:10,
   },
-  text:{
-    color:'black',
-    fontWeight:"bold"
+  todosText:{
+    fontSize:16,
+    color:"white",
+    flexWrap:"wrap",
   },
 })
   
